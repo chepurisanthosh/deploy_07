@@ -1,6 +1,6 @@
 ---
 - name: configuring the apache server
-  hosts: myserver
+  hosts: webserver
   become: yes
   tasks:
     - name: Install prerequisites
@@ -16,10 +16,10 @@
         state: started
     - name: creating the directory
       file:
-        path: /tmp/calculator
+        path: /tmp/cal
     - name: Open directory
       copy:
-        src: /tmp/calculator
+        src: /tmp/cal
         dest: /var/www/html/
     - name: restarting the apache services
       service:
